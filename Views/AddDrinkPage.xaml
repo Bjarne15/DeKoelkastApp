@@ -4,14 +4,16 @@
              x:Class="DeKoelkastApp.Views.AddDrinkPage"
              BackgroundColor="{StaticResource BackgroundColorDark}"
              Title="AddDrinkPage">
-    <StackLayout Padding="20">
+    <StackLayout Padding="20" Spacing="20">
         <Label Text="Voeg drank toe aan de koelkast." />
+        
         <Button Text="Accepteren" 
                 HorizontalOptions="FillAndExpand"
                 WidthRequest="250" 
                 BackgroundColor="{StaticResource BackgroundButtons}" 
                 TextColor="{StaticResource TextcolorLight}"
                 Command="{Binding Acceptcommand}" />
+        
         <Button Text="Annuleren"
                 HorizontalOptions="FillAndExpand"
                 WidthRequest="250" 

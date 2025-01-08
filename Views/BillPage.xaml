@@ -9,16 +9,20 @@
         <vm:BillPageViewModel />
     </ContentPage.BindingContext>
     
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+    <StackLayout HorizontalOptions="Center" Spacing="20">
         <Label Text="Hier is de rekening van deze week." />
+        
         <Button Text="Betalen"
                 Command="{Binding PayBillCommand}"
                 WidthRequest="250"
+                HorizontalOptions="Center"
                 BackgroundColor="{StaticResource BackgroundButtons}"
                 TextColor="{StaticResource TextcolorLight}" />
+        
         <Button Text="Uitstellen"
                 Command="{Binding PostponeBillCommand}"
                 WidthRequest="250"
+                HorizontalOptions="Center"
                 BackgroundColor="{StaticResource BackgroundButtons}"
                 TextColor="{StaticResource TextcolorLight}" />
     </StackLayout>

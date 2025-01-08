@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using DeKoelkastApp.Views;
+using DeKoelkastApp.Services;
 
 namespace DeKoelkastApp
 {
@@ -15,7 +17,9 @@ namespace DeKoelkastApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            // Registratie van Services
             builder.Services.AddSingleton<StartPage>();
+            builder.Services.AddSingleton<INavigationService, NavigationService>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

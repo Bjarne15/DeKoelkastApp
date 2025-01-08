@@ -14,18 +14,18 @@
                HorizontalOptions="Center" />
 
         <Entry Placeholder="Gebruikersnaam"
-               Text="{Binding Username}"
-               HorizontalOptions="Center" />
-
-        <Entry Placeholder="Wachtwoord"
-               Text="{Binding Password}"
-               IsPassword="True"
-               HorizontalOptions="Center" />
+               HorizontalOptions="Center"
+               WidthRequest="250"/>
+        
+        <Entry Placeholder="Wachtwoord" 
+               IsPassword="True" 
+               HorizontalOptions="Center"
+               WidthRequest="250"/>
 
         <Button Text="Inloggen"
                 Command="{Binding LoginCommand}"
                 WidthRequest="250"
                 BackgroundColor="{StaticResource BackgroundButtons}"
-                TextColor="{StaticResource TextcolorLight}" />
+                TextColor="{StaticResource TextcolorLight}"/>
     </VerticalStackLayout>
 </ContentPage>

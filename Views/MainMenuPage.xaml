@@ -9,7 +9,15 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <!-- Voor de tekst of label -->
+            <RowDefinition Height="70" />
+            <!-- Knop 1 -->
+            <RowDefinition Height="70" />
+            <!-- Knop 2 -->
+            <RowDefinition Height="70" />
+            <!-- Knop 3 -->
+            <RowDefinition Height="70" />
+            <!-- Knop 4 -->
         </Grid.RowDefinitions>
 
         <Label Text="Welkom bij het hoofdmenu"
@@ -18,18 +26,34 @@
 
         <Button Text="Drankje pakken"
                 Command="{Binding OpenDrinksPageCommand}"
-                Grid.Row="1" />
+                Grid.Row="1" 
+                HeightRequest="50" 
+                WidthRequest="200"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}"/>
 
         <Button Text="Drank toevoegen"
                 Command="{Binding OpenAddDrinkPageCommand}"
-                Grid.Row="2" />
+                Grid.Row="2"
+                HeightRequest="50" 
+                WidthRequest="200"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}"/>
 
         <Button Text="Rekening bekijken"
                 Command="{Binding OpenBillPageCommand}"
-                Grid.Row="3" />
+                Grid.Row="3"
+                HeightRequest="50" 
+                WidthRequest="200"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}"/>
 
         <Button Text="Uitloggen"
                 Command="{Binding LogoutCommand}"
-                Grid.Row="4" />
+                Grid.Row="4" 
+                HeightRequest="50" 
+                WidthRequest="200"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}"/>
     </Grid>
 </ContentPage>
