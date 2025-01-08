@@ -15,6 +15,8 @@ namespace DeKoelkastApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<StartPage>();
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

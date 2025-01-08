@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeKoelkastApp.Views.DrinkAddedConfirmationPage"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             Title="DrinkAddedConfirmationPage">
+
+    <ContentPage.BindingContext>
+        <vm:DrinkAddedConfirmationViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+        <Label Text="[ingegeven] aantal [ingegeven drank] met prijs [ingegeven prijs] werd toegevoegd."
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+        <Button Text="OK"
+                Command="{Binding GoToMainMenuCommand}"
+                WidthRequest="250"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextColorLight}" />
+    </VerticalStackLayout>
+    <!-- Opmaak voor paginga van drank toevoegen validatie. -->
+</ContentPage>

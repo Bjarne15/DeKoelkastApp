@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             x:Class="DeKoelkastApp.Views.RegisterPage"
+             Title="Register Page">
+
+    <ContentPage.BindingContext>
+        <vm:RegisterPageViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="20" Padding="10">
+        <Label Text="Maak hier een account aan."
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <Entry Text="{Binding FullName}"
+               Placeholder="Volledige Naam"
+               WidthRequest="300" />
+
+        <Entry Text="{Binding Username}"
+               Placeholder="Gebruikersnaam"
+               WidthRequest="300" />
+
+        <Entry Text="{Binding Password}"
+               Placeholder="Wachtwoord"
+               IsPassword="True"
+               WidthRequest="300" />
+
+        <Button Text="Accepteren"
+                Command="{Binding AcceptCommand}"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextcolorLight}"
+                WidthRequest="250" />
+    </VerticalStackLayout>
+</ContentPage>

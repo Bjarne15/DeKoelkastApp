@@ -1,0 +1,28 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             x:Class="DeKoelkastApp.Views.SettingsPage"
+             Title="SettingsPage">
+    <ContentPage.BindingContext>
+        <vm:SettingsPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Button Text="Profiel bijwerken"
+                    BackgroundColor="#5F9EA0"
+                    TextColor="Black" />
+            <Button Text="Profiel verwijderen"
+                    BackgroundColor="#5F9EA0"
+                    TextColor="Black" />
+            <Button Text="Uitloggen"
+                    Command="{Binding LogoutCommand}"
+                    BackgroundColor="{StaticResource BackgroundButtons}"
+                    TextColor="{StaticResource TextcolorLight}" />
+            <Button Text="Terug naar koelkast keuze"
+                    Command="{Binding BackToFridgeSelectionCommand}"
+                    BackgroundColor="{StaticResource BackgroundButtons}"
+                    TextColor="{StaticResource TextcolorLight}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

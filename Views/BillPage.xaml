@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             x:Class="DeKoelkastApp.Views.BillPage"
+             Title="BillPage">
+
+    <ContentPage.BindingContext>
+        <vm:BillPageViewModel />
+    </ContentPage.BindingContext>
+    
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Label Text="Hier is de rekening van deze week." />
+        <Button Text="Betalen"
+                Command="{Binding PayBillCommand}"
+                WidthRequest="250"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextcolorLight}" />
+        <Button Text="Uitstellen"
+                Command="{Binding PostponeBillCommand}"
+                WidthRequest="250"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextcolorLight}" />
+    </StackLayout>
+    <!-- Opmaak voor pagina van de rekening.-->
+</ContentPage>

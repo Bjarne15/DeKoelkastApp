@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeKoelkastApp.Views.AddDrinkPage"
+             BackgroundColor="{StaticResource BackgroundColorDark}"
+             Title="AddDrinkPage">
+    <StackLayout Padding="20">
+        <Label Text="Voeg drank toe aan de koelkast." />
+        <Button Text="Accepteren" 
+                HorizontalOptions="FillAndExpand"
+                WidthRequest="250" 
+                BackgroundColor="{StaticResource BackgroundButtons}" 
+                TextColor="{StaticResource TextcolorLight}"
+                Command="{Binding Acceptcommand}" />
+        <Button Text="Annuleren"
+                HorizontalOptions="FillAndExpand"
+                WidthRequest="250" 
+                BackgroundColor="{StaticResource BackgroundButtons}" 
+                TextColor="{StaticResource TextcolorLight}"
+                Command="{Binding CancelCommand}" />
+    </StackLayout>
+    
+    <!-- Opmaak van pagina voor drank toevoegen. -->
+</ContentPage>

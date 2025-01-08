@@ -1,4 +1,6 @@
-﻿namespace DeKoelkastApp
+﻿using DeKoelkastApp.Views;
+
+namespace DeKoelkastApp
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new StartPage()); // Startpagina als eerste pagina instellen.
         }
     }
 }

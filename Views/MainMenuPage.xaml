@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             x:Class="DeKoelkastApp.Views.MainMenuPage">
+    <ContentPage.BindingContext>
+        <vm:MainMenuPageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Text="Welkom bij het hoofdmenu"
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" />
+
+        <Button Text="Drankje pakken"
+                Command="{Binding OpenDrinksPageCommand}"
+                Grid.Row="1" />
+
+        <Button Text="Drank toevoegen"
+                Command="{Binding OpenAddDrinkPageCommand}"
+                Grid.Row="2" />
+
+        <Button Text="Rekening bekijken"
+                Command="{Binding OpenBillPageCommand}"
+                Grid.Row="3" />
+
+        <Button Text="Uitloggen"
+                Command="{Binding LogoutCommand}"
+                Grid.Row="4" />
+    </Grid>
+</ContentPage>

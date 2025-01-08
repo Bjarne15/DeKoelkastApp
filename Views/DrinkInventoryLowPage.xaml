@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeKoelkastApp.Views.DrinkInventoryLowPage"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             Title="DrinkInventoryLowPage">
+    <ContentPage.BindingContext>
+        <vm:DrinkInventoryLowPageViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+        <!-- Dynamische tekst -->
+        <Label Text="{Binding NotificationMessage}"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <!-- OK-knop met Command Binding -->
+        <Button Text="OK"
+                WidthRequest="250"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextColorLight}"
+                Command="{Binding NavigateToMainMenuCommand}" />
+    </VerticalStackLayout> <!-- Opmaak voor pagina die getoond word, als inventaris laag is. -->
+</ContentPage>
