@@ -10,7 +10,7 @@
                HorizontalOptions="Center"
                VerticalOptions="Center" />
 
-        <Button Text="Zuur Heeren"
+        <Button Text="Zuyd Heeren"
                 BackgroundColor="{StaticResource BackgroundButtons}"
                 TextColor="{StaticResource TextcolorLight}"
                 WidthRequest="250"
