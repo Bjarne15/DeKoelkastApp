@@ -1,0 +1,41 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeKoelkastApp.Views.PaymentPage"
+             Title="Kies een betaaloptie">
+
+    <StackLayout Padding="20">
+        <Label Text="Kies een betaaloptie:"
+               FontSize="18"
+               HorizontalOptions="Center"
+               Margin="0, 0, 0, 20"
+               BackgroundColor="{StaticResource BackgroundButtons}"
+               TextColor="{StaticResource TextcolorLight}" />
+
+        <Button Text="PayPal"
+                Command="{Binding PaymentOptionCommand}"
+                CommandParameter="PayPal"
+                HorizontalOptions="FillAndExpand"
+                WidthRequest="250"
+                Margin="0, 10, 0, 0"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextcolorLight}" />
+
+        <Button Text="Creditcard"
+                Command="{Binding PaymentOptionCommand}"
+                CommandParameter="Creditcard"
+                HorizontalOptions="FillAndExpand"
+                WidthRequest="250"
+                Margin="0, 10, 0, 0"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextcolorLight}" />
+
+        <Button Text="Bankoverschrijving"
+                Command="{Binding PaymentOptionCommand}"
+                CommandParameter="Bank"
+                HorizontalOptions="FillAndExpand"
+                WidthRequest="250"
+                Margin="0, 10, 0, 0"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextcolorLight}" />
+    </StackLayout>
+</ContentPage>

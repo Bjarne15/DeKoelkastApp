@@ -1,0 +1,31 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             x:Class="DeKoelkastApp.Views.RegisterPage"
+             Title="Register Page">
+
+    <ContentPage.BindingContext>
+        <vm:RegisterPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20" Spacing="20">
+        
+        <Entry Placeholder="Volledige Naam" 
+               Text="{Binding FullName}" />
+        
+        <Entry Placeholder="Gebruikersnaam" 
+               Text="{Binding Username}" />
+        
+        <Entry Placeholder="Wachtwoord" 
+               Text="{Binding Password}" 
+               IsPassword="True" />
+        
+        <Button Text="Registreer"
+                Command="{Binding RegisterCommand}"
+                WidthRequest="250"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextcolorLight}" 
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}" />
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,21 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             x:Class="DeKoelkastApp.Views.DrinksPage">
+
+    <StackLayout>
+        <ListView ItemsSource="{Binding ProductsWithStock}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Item1.Naam}" />
+                            <Label Text="{Binding Item1.Price}" />
+                            <Label Text="{Binding Item2}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

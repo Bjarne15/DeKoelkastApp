@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
+             x:Class="DeKoelkastApp.Views.LoginPage"
+             Title="LoginPage">
+
+    <ContentPage.BindingContext>
+        <vm:LoginPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Label Text="Gebruikersnaam" />
+        <Entry Text="{Binding Username}" 
+               Placeholder="Voer je gebruikersnaam in" />
+
+        <Label Text="Wachtwoord" 
+               Margin="0,10,0,0" />
+        
+        <Entry Text="{Binding Password}" 
+               IsPassword="True" 
+               Placeholder="Voer je wachtwoord in" />
+
+        <Button Text="Inloggen"
+                Command="{Binding LoginCommand}"
+                WidthRequest="250"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}" 
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource TextcolorLight}"/>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    </StackLayout>
+</ContentPage>

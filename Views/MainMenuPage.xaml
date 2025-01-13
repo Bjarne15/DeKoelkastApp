@@ -1,0 +1,85 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeKoelkastApp.Views.MainMenuPage">
+
+    <Grid Padding="20" RowSpacing="10" ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Voor de tekst of label -->
+            <RowDefinition Height="*" />
+            <!-- Knop 1 -->
+            <RowDefinition Height="*" />
+            <!-- Knop 2 -->
+            <RowDefinition Height="*" />
+            <!-- Knop 3 -->
+            <RowDefinition Height="*" />
+            <!-- Knop 4 -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Welkom bij het hoofdmenu"
+               FontSize="24"
+               HorizontalOptions="Center" 
+               VerticalOptions="Center"
+               Grid.Row="0"
+               Grid.ColumnSpan="2"/>
+
+        <Button Text="Drankje pakken"
+                Command="{Binding OpenDrinksPageCommand}"
+                Grid.Row="1" 
+                Grid.Column="0"
+                HeightRequest="150" 
+                WidthRequest="150"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}"/>
+
+        <Button Text="Drank toevoegen"
+                Command="{Binding OpenAddDrinkPageCommand}"
+                Grid.Row="1"
+                Grid.Column="1"
+                HeightRequest="150" 
+                WidthRequest="150"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}"/>
+
+        <Button Text="Rekening bekijken"
+                Command="{Binding OpenBillPageCommand}"
+                Grid.Row="2"
+                Grid.Column="0"
+                HeightRequest="150" 
+                WidthRequest="150"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}"/>
+
+        <Button Text="Uitloggen"
+                Command="{Binding LogoutCommand}"
+                Grid.Row="3" 
+                Grid.Column="1"
+                HeightRequest="150" 
+                WidthRequest="150"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}"/>
+
+        <Button Text="Andere koelkast kiezen"
+                Command="{Binding ChooseOtherFridgeCommand}"
+                Grid.Row="3"
+                Grid.Column="0"
+                HeightRequest="150"
+                WidthRequest="150"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}" />
+
+        <Button Text="Inventaris"
+                Command="{Binding ShowInventoryCommand}"
+                Grid.Row="2"
+                Grid.Column="1"
+                HeightRequest="150"
+                WidthRequest="150"
+                BackgroundColor="{StaticResource BackgroundButtons}"
+                TextColor="{StaticResource Black}" />
+
+    </Grid>
+</ContentPage>
