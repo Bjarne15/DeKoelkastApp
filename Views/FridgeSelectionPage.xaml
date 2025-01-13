@@ -1,20 +1,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
-             x:Class="DeKoelkastApp.Views.FridgeSelectionPage">
+             x:Class="DeKoelkastApp.Views.FridgeSelectionPage"
+             Title="Koelkast keuze">
 
     <ContentPage.BindingContext>
         <vm:FridgeSelectionPageViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout Padding="20">
+    <StackLayout Padding="20" Spacing="20">
         <Entry Placeholder="Voer de naam van de koelkast in"
                Text="{Binding FridgeName}"
                VerticalOptions="Center"
-               HorizontalOptions="FillAndExpand" 
-            WidthRequest="250"
-            BackgroundColor="{StaticResource BackgroundButtons}"
-            TextColor="{StaticResource TextcolorLight}" />
+               HorizontalOptions="FillAndExpand" />
 
         <Button Text="Selecteer Koelkast"
                 Command="{Binding SelectFridgeCommand}"
@@ -22,15 +20,7 @@
                 HorizontalOptions="FillAndExpand"  
                 WidthRequest="250"
                 BackgroundColor="{StaticResource BackgroundButtons}"
-                TextColor="{StaticResource TextcolorLight}"/>
-
-        <Button Text="Scan QR Code"
-                Command="{Binding ScanQrCodeCommand}"
-                VerticalOptions="Center"
-                HorizontalOptions="FillAndExpand"  
-                WidthRequest="250"
-                BackgroundColor="{StaticResource BackgroundButtons}"
-                TextColor="{StaticResource TextcolorLight}"/>
+                TextColor="{StaticResource TextcolorLight}" />
 
         <Label Text="{Binding ErrorMessage}"
                IsVisible="{Binding IsErrorVisible}"

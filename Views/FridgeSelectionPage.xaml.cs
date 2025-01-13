@@ -1,5 +1,4 @@
 using DeKoelkastApp.ViewModels;
-using ZXing.Net.Maui;
 
 namespace DeKoelkastApp.Views
 {
@@ -12,15 +11,6 @@ namespace DeKoelkastApp.Views
             InitializeComponent();
             _viewModel = new FridgeSelectionPageViewModel();
             BindingContext = _viewModel;
-        }
-
-        private void barcodeReader_BarcodesDetected(object sender, BarcodeDetectionEventArgs e)
-        {
-            if (e.Results.Any())
-            {
-                var result = e.Results.First();
-                _viewModel.OnBarcodeDetected(result.Value);
-            }
         }
     }
 }

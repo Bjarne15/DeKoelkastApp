@@ -4,8 +4,10 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using DeKoelkastApp.Models;
 using DeKoelkastApp.Services;
+using Supabase;
+using Supabase.Postgrest;
+using Supabase.Postgrest.Attributes;
 using DeKoelkastApp.Views;
-using System;
 
 namespace DeKoelkastApp.ViewModels
 {
@@ -27,25 +29,14 @@ namespace DeKoelkastApp.ViewModels
         {
             // Command voor selectie
             SelectFridgeCommand = new AsyncRelayCommand(SelectFridgeAsync);
-            ScanQrCodeCommand = new RelayCommand(() => IsScanning = true);
 
             NavigateToSettingsCommand = new RelayCommand(() => NavigateToSettings());
             LogoutCommand = new RelayCommand(() => Logout());
         }
 
         public IAsyncRelayCommand SelectFridgeCommand { get; }
-        public IRelayCommand ScanQrCodeCommand { get; }
         public IRelayCommand NavigateToSettingsCommand { get; }
         public IRelayCommand LogoutCommand { get; }
-
-        [ObservableProperty]
-        private bool isScanning;
-
-        public void OnBarcodeDetected(string barcodeValue)
-        {
-            FridgeName = barcodeValue;
-            SelectFridgeCommand.Execute(null);
-        }
 
         private async Task SelectFridgeAsync()
         {
@@ -61,7 +52,10 @@ namespace DeKoelkastApp.ViewModels
                 await SupabaseService.InitializeAsync();
 
                 // Zoek naar koelkast op basis van naam
-                var response = await SupabaseService.GetFridgeByNameAsync(fridgeName);
+                var response = await SupabaseService.SupabaseClient
+                    .From<Models.Fridge>()
+                    .Filter("name", Supabase.Postgrest.Constants.Operator.Equals, FridgeName)
+                    .Single();
 
                 if (response != null)
                 {
