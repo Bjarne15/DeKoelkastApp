@@ -4,12 +4,14 @@ namespace DeKoelkastApp.Views
 {
     public partial class MainMenuPage : ContentPage
     {
-        public MainMenuPage()
+        private MainMenuPageViewModel _viewModel;
+
+        public MainMenuPage(int fridgeId)
         {
             InitializeComponent();
-            var viewModel = new MainMenuPageViewModel();
-            viewModel.Navigation = this.Navigation; // Stel de Navigation-property in
-            BindingContext = viewModel;
+            _viewModel = new MainMenuPageViewModel(fridgeId);
+            BindingContext = _viewModel;
+            _viewModel.Navigation = Navigation;
         }
     }
 }

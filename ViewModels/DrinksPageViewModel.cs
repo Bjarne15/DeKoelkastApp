@@ -4,22 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using DeKoelkastApp.Views;
+using DeKoelkastApp.Models;
+using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using DeKoelkastApp.Services;
 
 namespace DeKoelkastApp.ViewModels
 {
-    public class DrinksPageViewModel : BaseViewModel
+    public class DrinksPageViewModel : ObservableObject
     {
-        public ICommand ReturnToMainMenuCommand { get; }
+        public ObservableCollection<(Product, int)> ProductsWithStock { get; set; } = new ObservableCollection<(Product, int)>();
+
+        private int _fridgeId;
 
         public DrinksPageViewModel()
         {
-            ReturnToMainMenuCommand = new Command(async () => await NavigateToMainMenu());
+            LoadProductsCommand = new AsyncRelayCommand(LoadProducts);
         }
 
-        private async Task NavigateToMainMenu()
+        public DrinksPageViewModel(int fridgeId) : this()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new MainMenuPage());
+            _fridgeId = fridgeId;
+        }
+
+        public IAsyncRelayCommand LoadProductsCommand { get; }
+
+        private async Task LoadProducts()
+        {
+            await SupabaseService.InitializeAsync();
+            var productsWithStock = await SupabaseService.GetProductsByFridgeAsync(_fridgeId);
+            ProductsWithStock.Clear();
+            foreach (var productWithStock in productsWithStock)
+            {
+                ProductsWithStock.Add(productWithStock);
+            }
+            Console.WriteLine($"Loaded {ProductsWithStock.Count} products into the view model");
         }
     }
 }

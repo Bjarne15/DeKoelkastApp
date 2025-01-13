@@ -3,22 +3,31 @@
              xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
              x:Class="DeKoelkastApp.Views.SettingsPage"
              Title="SettingsPage">
+    
     <ContentPage.BindingContext>
         <vm:SettingsPageViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            <Button Text="Profiel bijwerken"
-                    BackgroundColor="#5F9EA0"
-                    TextColor="Black" />
+            <Label Text="Volledige Naam" />
+            <Entry Text="{Binding FullName}" />
+
+            <Label Text="Gebruikersnaam" />
+            <Entry Text="{Binding Username}" />
+
+            <Label Text="Wachtwoord" />
+            <Entry Text="{Binding Password}" IsPassword="True" />
+
+            <Button Text="Gegevens bijwerken"
+                Command="{Binding UpdateCommand}" />
+
             <Button Text="Profiel verwijderen"
-                    BackgroundColor="#5F9EA0"
-                    TextColor="Black" />
-            <Button Text="Uitloggen"
-                    Command="{Binding LogoutCommand}"
-                    BackgroundColor="{StaticResource BackgroundButtons}"
-                    TextColor="{StaticResource TextcolorLight}" />
+                Command="{Binding DeleteProfileCommand}" />
+
+            <Button Text="Terug"
+                Command="{Binding GoBackCommand}" />
+
             <Button Text="Terug naar koelkast keuze"
                     Command="{Binding BackToFridgeSelectionCommand}"
                     BackgroundColor="{StaticResource BackgroundButtons}"

@@ -4,10 +4,19 @@ namespace DeKoelkastApp.Views
 {
     public partial class DrinksPage : ContentPage
     {
-        public DrinksPage()
+        private DrinksPageViewModel _viewModel;
+
+        public DrinksPage(int fridgeId)
         {
             InitializeComponent();
-            BindingContext = new DrinksPageViewModel();
+            _viewModel = new DrinksPageViewModel(fridgeId);
+            BindingContext = _viewModel;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.LoadProductsCommand.Execute(null);
         }
     }
 }

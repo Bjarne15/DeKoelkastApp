@@ -1,4 +1,5 @@
 ﻿using DeKoelkastApp.Views;
+using DeKoelkastApp.Services;
 
 namespace DeKoelkastApp
 {
@@ -10,5 +11,10 @@ namespace DeKoelkastApp
 
             MainPage = new NavigationPage(new StartPage()); // Startpagina als eerste pagina instellen.
         }
+        protected override async void OnStart()
+        {
+            await SupabaseService.InitializeAsync();
+        }
+
     }
 }

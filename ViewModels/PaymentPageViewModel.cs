@@ -10,10 +10,13 @@ namespace DeKoelkastApp.ViewModels
 {
     public class PaymentPageViewModel : BaseViewModel
     {
+        private int _fridgeId;
+
         public ICommand PaymentOptionCommand { get; }
 
-        public PaymentPageViewModel()
+        public PaymentPageViewModel(int fridgeId)
         {
+            _fridgeId = fridgeId;
             PaymentOptionCommand = new Command<string>(OnPaymentOptionSelected);
         }
 
@@ -22,7 +25,7 @@ namespace DeKoelkastApp.ViewModels
             // Hier kun je logica toevoegen afhankelijk van de geselecteerde betaaloptie
             if (option == "Bank")
             {
-                await Application.Current.MainPage.Navigation.PushAsync(new PayingPage());
+                await Application.Current.MainPage.Navigation.PushAsync(new PayingPage(_fridgeId));
             }
             else
             {

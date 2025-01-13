@@ -2,12 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DeKoelkastApp.Views.DrinkAddedConfirmationPage"
-             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
              Title="DrinkAddedConfirmationPage">
-
-    <ContentPage.BindingContext>
-        <vm:DrinkAddedConfirmationViewModel />
-    </ContentPage.BindingContext>
 
     <VerticalStackLayout>
         <Label Text="[ingegeven] aantal [ingegeven drank] met prijs [ingegeven prijs] werd toegevoegd."

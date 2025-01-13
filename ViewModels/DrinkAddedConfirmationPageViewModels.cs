@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+using System.Windows.Input;
+using Microsoft.Maui.Controls;
+using DeKoelkastApp.Views;
 
 namespace DeKoelkastApp.ViewModels
 {
-    public partial class DrinkAddedConfirmationViewModel : ObservableObject
+    public class DrinkAddedConfirmationViewModel : BaseViewModel
     {
-        public DrinkAddedConfirmationViewModel()
+        private int _fridgeId;
+
+        public ICommand GoToMainMenuCommand { get; }
+
+        public DrinkAddedConfirmationViewModel(int fridgeId)
         {
-            // Constructor voor eventuele initialisatie
+            _fridgeId = fridgeId;
+            GoToMainMenuCommand = new Command(async () => await NavigateToMainMenu());
         }
 
-        [RelayCommand]
-        private async Task GoToMainMenu()
+        private async Task NavigateToMainMenu()
         {
-            // Navigatie naar het hoofdmenu
-            await App.Current.MainPage.Navigation.PushAsync(new Views.MainMenuPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new MainMenuPage(_fridgeId));
         }
     }
 }

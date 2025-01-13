@@ -1,9 +1,16 @@
-namespace DeKoelkastApp.Views;
+using DeKoelkastApp.ViewModels;
 
-public partial class DrinkAddedConfirmationPage : ContentPage
+namespace DeKoelkastApp.Views
 {
-	public DrinkAddedConfirmationPage()
-	{
-		InitializeComponent();
-	}
+    public partial class DrinkAddedConfirmationPage : ContentPage
+    {
+        private DrinkAddedConfirmationViewModel _viewModel;
+
+        public DrinkAddedConfirmationPage(int fridgeId)
+        {
+            InitializeComponent();
+            _viewModel = new DrinkAddedConfirmationViewModel(fridgeId);
+            BindingContext = _viewModel;
+        }
+    }
 }

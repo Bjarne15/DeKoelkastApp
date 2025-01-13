@@ -1,9 +1,16 @@
-namespace DeKoelkastApp.Views;
+using DeKoelkastApp.ViewModels;
 
-public partial class PayingPage : ContentPage
+namespace DeKoelkastApp.Views
 {
-	public PayingPage()
-	{
-		InitializeComponent();
-	}
+    public partial class PayingPage : ContentPage
+    {
+        private PayingPageViewModel _viewModel;
+
+        public PayingPage(int fridgeId)
+        {
+            InitializeComponent();
+            _viewModel = new PayingPageViewModel(fridgeId);
+            BindingContext = _viewModel;
+        }
+    }
 }

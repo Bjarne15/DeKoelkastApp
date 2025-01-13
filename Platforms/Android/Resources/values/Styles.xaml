@@ -8,7 +8,7 @@
     <Color x:Key="PrimaryColor">#9d9d9d</Color>
     <Color x:Key="SecondaryColor">#27ff00</Color>
     <Color x:Key="TextcolorLight">#000000</Color>
-    <Color x:Key="TextcolorDark">#FFFFFF</Color>
+    <Color x:Key="TextColorDark">#FFFFFF</Color>
     <Color x:Key="BackgroundColorDark">#000000</Color>
     <Color x:Key="BackgroundColorLight">#FFFFFF</Color>
     <Color x:Key="BackgroundButtons">#5F9EA0</Color>

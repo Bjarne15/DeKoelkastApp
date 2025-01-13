@@ -8,28 +8,24 @@
         <vm:RegisterPageViewModel />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout Spacing="20" Padding="10">
-        <Label Text="Maak hier een account aan."
-               VerticalOptions="Center"
-               HorizontalOptions="Center" />
-
-        <Entry Text="{Binding FullName}"
-               Placeholder="Volledige Naam"
-               WidthRequest="300" />
-
-        <Entry Text="{Binding Username}"
-               Placeholder="Gebruikersnaam"
-               WidthRequest="300" />
-
-        <Entry Text="{Binding Password}"
-               Placeholder="Wachtwoord"
-               IsPassword="True"
-               WidthRequest="300" />
-
-        <Button Text="Accepteren"
-                Command="{Binding AcceptCommand}"
+    <StackLayout Padding="20" Spacing="20">
+        
+        <Entry Placeholder="Volledige Naam" 
+               Text="{Binding FullName}" />
+        
+        <Entry Placeholder="Gebruikersnaam" 
+               Text="{Binding Username}" />
+        
+        <Entry Placeholder="Wachtwoord" 
+               Text="{Binding Password}" 
+               IsPassword="True" />
+        
+        <Button Text="Registreer"
+                Command="{Binding RegisterCommand}"
+                WidthRequest="250"
                 BackgroundColor="{StaticResource BackgroundButtons}"
-                TextColor="{StaticResource TextcolorLight}"
-                WidthRequest="250" />
-    </VerticalStackLayout>
+                TextColor="{StaticResource TextcolorLight}" 
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}" />
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    </StackLayout>
 </ContentPage>

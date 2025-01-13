@@ -1,11 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:DeKoelkastApp.ViewModels"
              x:Class="DeKoelkastApp.Views.PaymentPage"
              Title="Kies een betaaloptie">
-    <ContentPage.BindingContext>
-        <vm:PaymentPageViewModel />
-    </ContentPage.BindingContext>
 
     <StackLayout Padding="20">
         <Label Text="Kies een betaaloptie:"
