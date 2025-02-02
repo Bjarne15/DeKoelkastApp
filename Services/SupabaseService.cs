@@ -25,8 +25,8 @@ namespace DeKoelkastApp.Services
                 };
 
                 SupabaseClient = new Supabase.Client(
-                    "https://sntqwfvigxjyhpzvrbco.supabase.co",
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNudHF3ZnZpZ3hqeWhwenZyYmNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMyMjk4NjMsImV4cCI6MjA0ODgwNTg2M30.AwM9u7UdtHFB6NhNFtXUhnVqRXxPM4NHuzBeXTYpW4Q",
+                    "API Link",
+                    "API Key",
                     options
                 );
                 await SupabaseClient.InitializeAsync();
